@@ -1,0 +1,266 @@
+linter is a application for finding the bug 
+
+and its work like debugger
+
+Your editor or IDE might not come with a lint feature, but if it supports
+plug-ins, almost certainly a linter will be available. Often, these plug-ins use
+a linting module called Pyflakes or some other module to do their analysis.
+You can install Pyflakes from https://pypi.org/project/pyflakes/ or by running
+pip install --user pyflakes . It’s well worth the effort.
+
+
+Each operating system has a way of viewing a list of running processes.
+On Windows, you can press CTRL-SHIFT-ESC to bring up the Task Manager
+application. On macOS, you can run ApplicationsUtilitiesActivity
+Monitor. On Ubuntu Linux, you can press CTRL-ALT-DEL to open an
+application also called the Task Manager. These task managers can force
+a running process to terminate if it’s unresponsive.
+
+
+start from here Using Command Line Arguments page 24
+
+
+The Linux Command Line, 2nd Edition
+(2019) by William Shotts, Linux Basics for Hackers (2018) by OccupyTheWeb, or
+PowerShell for Sysadmins (2020) by Adam Bertram, all from No Starch Press.
+
+
+On Windows, you can view the command history by running doskey
+/history . (The oddly named doskey program goes back to Microsoft’s pre-
+Windows operating system, MS-DOS.) On macOS and Linux, you can
+view the command history by running the history command.
+
+start on page 28 
+
+from Copy Files and Folders with copy and cp
+
+
+You can delete the files by run-
+ning del /s /q [folder] . The /s runs the del command on the subfolders,
+and the /q essentially means “be quiet and don’t ask me for confirmation.
+
+
+On macOS and Linux, you can’t use the rm command to delete folders.
+But you can run rm –r [folder] to delete a folder and all of its contents. On
+Windows, rd /s /q [folder] will do the same thing. Figure 2-5 illustrates
+this task.
+
+
+You can see a list of the terminal window’s environment variables by running
+set (on Windows) or env (on macOS and Linux) from the command line:
+
+
+You can also view the value of a single environment variable with the
+echo command. Run echo %HOMEPATH% on Windows or echo $HOME on macOS
+and Linux to view the value of the HOMEPATH or HOME environment variables,
+
+
+path set on windows
+
+path C:\newFolder;%PATH%
+
+
+path set on linux or macos
+
+PATH=/newFolder:$PATH
+
+Permanently Adding Folders to PATH on Windows
+
+click the Start menu and then enter Edit environment variables for
+your account ,
+
+Select Path from the user variable list (not the system variable list), click
+Edit, add the new folder name in the text field that appears (don’t forget
+the semicolon separator), and click OK.
+
+From the Command Prompt, you can permanently modify the system
+PATH variable using the setx command:
+
+setx /M PATH "C:\newFolder;%PATH%"
+
+You’ll need to run the Command Prompt as the administrator to run
+the setx command.
+
+
+start from
+ Permanently Adding Folders to PATH on macOS and Linux
+
+ from page 39
+
+To add folders to the PATH environment variables for all terminal windows
+on macOS and Linux, you’ll need to modify the .bashrc text file in your
+home folder and add the following line:
+
+export PATH=/newFolder:$PATH
+
+Running Python Programs on Windows
+On Windows, you can run Python programs in a few other ways. Instead of
+opening a terminal window, you can press WIN-R to open the Run dialog
+and enter py C:\path\to\yourScript.py ,
+
+You can solve these problems by creating a batch script, which is a small
+text file with the .bat file extension that can run multiple terminal com-
+mands at once, much like a shell script in macOS and Linux.
+
+so the script should look like
+
+@py.exe C:\path\to\yourScript.py %*
+@pause
+
+start from part 2 page 43
+
+Python Enhancement Proposal 8 (PEP 8)
+
+
+Black: The Uncompromising Code Formatter
+
+
+install black for code formatting
+
+python3 -m pip install --user black
+
+for running black to code formatting
+
+python3 -m black yourScript.py
+
+and here m is stand for the black is a standalone application
+
+the Black can format all the file from a folder
+
+python3 -m black (path of the folder)
+
+start from page 54
+Adjusting Black’s Line Length Setting
+
+
+have some page left on
+
+Some commonly overwritten Python names are all , any , date , email , file ,
+format , hash , id , input , list , min , max , object , open , random , set , str , sum , test , and
+type . Don’t use these names for your identifiers.
+
+
+Another common problem is naming your .py files the same names
+as third-party modules. For example, if you installed the third-party
+Pyperclip module but also created a pyperclip.py file, an import pyperclip
+statement imports pyperclip.py instead of the Pyperclip module. When
+you try to call Pyperclip’s copy() or paste() functions, you’ll get an error
+saying they don’t exist:
+
+
+start from chapter 5
+
+
+start from chapter 6
+
+Pythonic Ways to Use Dictionaries
+
+start from page 98
+
+Mutable and Immutable start from page 114
+
+Python lists and dictionaries are values that can contain multiple other val-
+ues. To access these values, you use an index operator, which is composed of a
+pair of square brackets ( [ ] ) and an integer called an index to specify which
+value you want to access.
+
+
+Functions are first-class objects in Python, meaning you can store them
+in variables, pass them as arguments in function calls, return them from
+function calls, and do anything else you can do with an object. Think of a
+def statement as assigning a function object to a variable. For example, you
+could create a spam() function that you can then call:
+
+
+A function is a collection of code that runs when called. A method is a function
+(or a callable, described in the next section) that is associated with a class,
+just as an attribute is a variable associated with an object. Functions include
+built-in functions or functions associated with a module.
+
+
+Parameters vs. Arguments
+Parameters are the variable names between the parentheses in a def state-
+ment. Arguments are the values passed in a function call, which are then
+assigned to the parameters.
+
+
+You can get the code point, or ordinal, of a character by passing it to
+the ord() function. You can do the reverse by passing an ordinal integer
+to the chr() function, which returns a string of the character
+
+
+Institute of Electrical and Electronics Engineers (IEEE, pronounced “eye-
+triple-ee”)
+
+
+The main ones that Python programs can use are
+side-effect-free functions, higher-order functions, and lambda functions.
+
+
+Magic Comments and Source File Encoding
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+you can use the cookiecutter Python module to create
+these files and folders automatically. You’ll find the full documentation for
+both the module and the Cookiecutter command line program at https://
+cookiecutter.readthedocs.io/.
+
+
+Command Prompt or Terminal window, run cd to change directory to your Git
+repo’s project folder, and run watch "git status" . The watch command will run
+git status every two seconds, displaying the latest results onscreen. You can
+leave this window open while you use the Git command line tool in a different
+Terminal window to see how your repo’s status changes in real time. You can
+open another Terminal window and run watch "git log –online" to view a
+summary of the commits you make, also updated in real time. This information
+helps remove the guesswork as to what the Git commands you enter are doing
+to your repo.
+
+
+# Diff Tool Installation
+On Linux, you can install either Meld by using
+the sudo apt-get install meld command or Kompare by using the sudo apt-
+get install kompare command
+
+You can configure Git to use these tools by running git config diff.tool
+<tool_name> , where <tool_name> is winmerge , tkdiff , meld , or kompare . Then run
+git difftool <filename> to view the changes made to a file in the tool’s GUI,
+
+
+Don’t delete the file using the del command on Windows or rm com-
+mand on macOS and Linux. (If you do, you can run git restore <filename>
+to recover it or simply continue with the git rm command to remove it
+from the repo.) Instead, use the git rm command to delete and stage the
+deleteme.txt file such as in this example:
+
+
+
+Unstaging a Staged File
+If you’ve staged a modified file by running the git add command on it but
+now want to remove it from staging so it won’t be included in the next com-
+mit, run git restore --staged <filename> to unstage it:
+
+
+I recommend two free books
+that you can find online: Pro Git by Scott Charcon at https://git-scm.com/book/
+en/v2 and Version Control by Example by Eric Sink at https://ericsink.com/vcbe/
+index.html.
+
+
+we need to right titactoe_oop.py from page 288
+
+
+https://autbor.com/compareoop/#diff (links for the two tic_tac game)
+
+
+read from 296 page for understanding tic_tac toe program properly
+
+to inheritance downside
+
+
+
+
+
+
